@@ -12,6 +12,7 @@ import {
 import s from './Home.css';
 import StatWidget from '../../components/Widget';
 import Donut from '../../components/Donut';
+import LiveChart from '../../components/LiveChart';
 
 import {
   Tooltip,
@@ -87,6 +88,22 @@ function Home(props, context) {
 
       <div className="row">
         <div className="col-lg-8">
+          <Panel
+            header={<span>
+              <i className="fa fa-bar-chart-o fa-fw" /> Live Chart
+              <div className="pull-right">
+                <DropdownButton title="Dropdown" bsSize="xs" pullRight id="dropdownButton1" >
+                  <MenuItem eventKey="1">Action</MenuItem>
+                  <MenuItem eventKey="2">Another action</MenuItem>
+                  <MenuItem eventKey="3">Something else here</MenuItem>
+                  <MenuItem divider />
+                  <MenuItem eventKey="4">Separated link</MenuItem>
+                </DropdownButton>
+              </div>
+            </span>}
+          >
+            <LiveChart />
+          </Panel>
 
           <Panel
             header={<span>
