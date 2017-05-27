@@ -35,21 +35,6 @@ class StatWidget extends Component{ // eslint-disable-line
             </div>
           </div>
         </div>}
-
-        footer={
-          <Link
-            to={
-              this.props.linkTo // eslint-disable-line
-            }
-          >
-            <span className="pull-left">
-              {
-                this.props.footerText
-              }
-            </span>
-            <span className="pull-right"><i className="fa fa-arrow-circle-right" /></span>
-            <div className="clearfix" />
-          </Link>}
       />
 
     );

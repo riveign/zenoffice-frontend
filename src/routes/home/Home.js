@@ -38,7 +38,7 @@ function Home(props, context) {
     <div>
       <div className="row">
         <div className="col-lg-12">
-          <PageHeader>Dashboard</PageHeader>
+          <PageHeader>Segundo piso</PageHeader>
         </div>
       </div>
 
@@ -47,9 +47,9 @@ function Home(props, context) {
           <StatWidget
             style="panel-primary"
             icon="fa fa-comments fa-5x"
-            count="26"
-            headerText="New Comments!"
-            footerText="View Details"
+            count="26 C"
+            headerText="Temperatura"
+            footerText="Ver Historial"
             linkTo="/"
           />
         </div>
@@ -58,8 +58,8 @@ function Home(props, context) {
             style="panel-green"
             icon="fa fa-tasks fa-5x"
             count="12"
-            headerText="New Tasks!"
-            footerText="View Details"
+            headerText="Decibeles"
+            footerText="Ver Historial"
             linkTo="/"
           />
         </div>
@@ -67,9 +67,9 @@ function Home(props, context) {
           <StatWidget
             style="panel-yellow"
             icon="fa fa-shopping-cart fa-5x"
-            count="124"
-            headerText="New Orders!"
-            footerText="View Details"
+            count="15"
+            headerText="Personas"
+            footerText="Ver detalles"
             linkTo="/"
           />
         </div>
@@ -78,8 +78,8 @@ function Home(props, context) {
             style="panel-red"
             icon="fa fa-support fa-5x"
             count="13"
-            headerText="Support Tickets!"
-            footerText="View Details"
+            headerText="Quejas"
+            footerText="Ver detalles"
             linkTo="/"
           />
         </div>
@@ -262,16 +262,6 @@ function Home(props, context) {
               </ListGroupItem>
             </ListGroup>
             <Button block>View All Alerts</Button>
-          </Panel>
-
-          <Panel
-            header={<span>
-              <i className="fa fa-bar-chart-o fa-fw" /> Donut Chart Example
-            </span>}
-          >
-            <div>
-              <Donut data={data} color="#8884d8" innerRadius="70%" outerRadius="90%" />
-            </div>
           </Panel>
 
         </div>

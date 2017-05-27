@@ -15,7 +15,7 @@ import home from './home';
 import login from './login';
 import blank from './dashboardPages/blank';
 import error from './error';
-
+import profile from './profile';
 import Header from '../components/Header';
 
 export default [
@@ -42,8 +42,7 @@ export default [
     children: [
       home,
       blank,
-
-      // place new routes before...
+      profile,
       error,
     ],
 
