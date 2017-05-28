@@ -11,7 +11,7 @@ import {
 import s from './Home.css';
 import StatWidget from '../../components/Widget';
 import CallStatus from '../../components/CallStatus';
-import CallButton from '../../components/CallButton';
+import LiveChart from '../../components/LiveChart';
 
 import {
   Tooltip,
@@ -19,7 +19,7 @@ import {
   CartesianGrid, AreaChart, Bar, BarChart,
   ResponsiveContainer } from '../../vendor/recharts';
 
-const title = 'Sb Admin React';
+const title = 'Zenoffice';
 
 const data = [
       { name: 'Page A', uv: 4000, pv: 2400, amt: 2400, value: 600 },
@@ -41,16 +41,8 @@ function Home(props, context) {
         <div className="col-lg-8">
           <PageHeader>Segundo piso</PageHeader>
         </div>
-        <div className="col-lg-4">
-          {
-            callInProgress ? (
-              <CallStatus
-                name="Ignacio"
-              />
-          ) : (
-            <CallButton />
-          )
-          }
+        <div className="col-lg-4" style={{ padding: 10 }}>
+          <CallStatus />
         </div>
       </div>
 
@@ -99,10 +91,9 @@ function Home(props, context) {
 
       <div className="row">
         <div className="col-lg-8">
-
           <Panel
             header={<span>
-              <i className="fa fa-bar-chart-o fa-fw" /> Area Chart Example
+              <i className="fa fa-bar-chart-o fa-fw" /> Estadísticas
               <div className="pull-right">
                 <DropdownButton title="Dropdown" bsSize="xs" pullRight id="dropdownButton1" >
                   <MenuItem eventKey="1">Action</MenuItem>
@@ -114,54 +105,12 @@ function Home(props, context) {
               </div>
             </span>}
           >
-            <div>
-              <ResponsiveContainer width="100%" aspect={2}>
-                <AreaChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }} >
-                  <XAxis dataKey="name" />
-                  <YAxis />
-                  <CartesianGrid stroke="#ccc" />
-                  <Tooltip />
-                  <Area type="monotone" dataKey="uv" stackId="1" stroke="#8884d8" fill="#8884d8" />
-                  <Area type="monotone" dataKey="pv" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
-                  <Area type="monotone" dataKey="amt" stackId="1" stroke="#ffc658" fill="#ffc658" />
-                </AreaChart>
-              </ResponsiveContainer>
-            </div>
-
+            <LiveChart />
           </Panel>
 
           <Panel
             header={<span>
-              <i className="fa fa-bar-chart-o fa-fw" /> Bar Chart Example
-              <div className="pull-right">
-                <DropdownButton title="Dropdown" bsSize="xs" pullRight id="dropdownButton2">
-                  <MenuItem eventKey="1">Action</MenuItem>
-                  <MenuItem eventKey="2">Another action</MenuItem>
-                  <MenuItem eventKey="3">Something else here</MenuItem>
-                  <MenuItem divider />
-                  <MenuItem eventKey="4">Separated link</MenuItem>
-                </DropdownButton>
-              </div>
-            </span>}
-          >
-            <div>
-              <ResponsiveContainer width="100%" aspect={2}>
-                <BarChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }} >
-                  <CartesianGrid stroke="#ccc" />
-                  <XAxis dataKey="name" />
-                  <YAxis />
-                  <Tooltip />
-                  <Bar dataKey="pv" stackId="1" fill="#8884d8" />
-                  <Bar dataKey="uv" stackId="1" fill="#82ca9d" />
-                  <Bar type="monotone" dataKey="amt" fill="#ffc658" />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-          </Panel>
-
-          <Panel
-            header={<span>
-              <i className="fa fa-clock-o fa-fw" /> Responsive Timeline
+              <i className="fa fa-clock-o fa-fw" /> Eventos
             </span>}
           >
             <div>
@@ -171,18 +120,11 @@ function Home(props, context) {
                   </div>
                   <div className="timeline-panel">
                     <div className="timeline-heading">
-                      <h4 className="timeline-title">Lorem ipsum dolor</h4>
+                      <h4 className="timeline-title">Call de Fabi</h4>
                       <p>
                         <small className="text-muted">
-                          <i className="fa fa-clock-o" /> 11 hours ago via Twitter
+                          <i className="fa fa-clock-o" /> Hace 11 minutos
                         </small>
-                      </p>
-                    </div>
-                    <div className="timeline-body">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero
-                        laboriosam dolor perspiciatis omnis exercitationem. Beatae, officia
-                        pariatur? Est cum veniam excepturi. Maiores praesentium, porro voluptas
-                        suscipit facere rem dicta, debitis.
                       </p>
                     </div>
                   </div>
@@ -192,17 +134,17 @@ function Home(props, context) {
                   </div>
                   <div className="timeline-panel">
                     <div className="timeline-heading">
-                      <h4 className="timeline-title">Lorem ipsum dolor</h4>
+                      <h4 className="timeline-title">Se prendieron los aires</h4>
                     </div>
                     <div className="timeline-body">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolorem
-                        quibusdam, tenetur commodi provident cumque magni voluptatem libero, quis
-                        rerum. Fugiat esse debitis optio, tempore. Animi officiis alias, officia
-                        repellendus.
+                      <p>
+                        <small className="text-muted">
+                          <i className="fa fa-clock-o" /> Hace 2 horas
+                        </small>
                       </p>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium
-                        maiores odit qui est tempora eos, nostrum provident explicabo dignissimos
-                        debitis vel! Adipisci eius voluptates, ad aut recusandae minus eaque facere.
+                      <p>
+                        Con una temperatura de 28º, 3 personas se quejaron del calor
+                        y se prendieron los aires en 24º.
                       </p>
                     </div>
                   </div>
@@ -212,12 +154,17 @@ function Home(props, context) {
                   </div>
                   <div className="timeline-panel">
                     <div className="timeline-heading">
-                      <h4 className="timeline-title">Lorem ipsum dolor</h4>
+                      <h4 className="timeline-title">!Momento ruidoso!</h4>
                     </div>
                     <div className="timeline-body">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus
-                        numquam facilis enim eaque, tenetur nam id qui vel velit similique nihil
-                        iure molestias aliquam, voluptatem totam quaerat, magni commodi quisquam.
+                      <p>
+                        <small className="text-muted">
+                          <i className="fa fa-clock-o" /> Hace 3 horas
+                        </small>
+                      </p>
+                      <p>
+                        Se supero el umbral de ruido.
+                        Se notificó por slack y se disminuyó el ruido sin quejas.
                       </p>
                     </div>
                   </div>
@@ -238,11 +185,11 @@ function Home(props, context) {
             <ListGroup>
               <ListGroupItem href="" onClick={(e) => { e.preventDefault(); }}>
                 <i className="fa fa-comment fa-fw" /> Pablo va a tener una call en 30 minutos
-                <span className="pull-right text-muted small"><em>7 minutes ago</em></span>
+                <span className="pull-right text-muted small"><em>Hace 7 minutos</em></span>
               </ListGroupItem>
               <ListGroupItem href="" onClick={(e) => { e.preventDefault(); }}>
                 <i className="fa fa-check fa-fw" /> ¡El 2do piso fue el más tranquilo de la semana!
-                <span className="pull-right text-muted small"><em>15 minutes ago</em></span>
+                <span className="pull-right text-muted small"><em>Hace 15 minutos</em></span>
               </ListGroupItem>
             </ListGroup>
             <Button block>View All Alerts</Button>
