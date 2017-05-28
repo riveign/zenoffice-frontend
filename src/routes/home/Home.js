@@ -81,7 +81,7 @@ function Home(props, context) {
           <StatWidget
             style="panel-red"
             icon="fa fa-exclamation-triangle fa-5x"
-            count="13"
+            count="6"
             headerText="Quejas"
             footerText="Ver detalles"
             linkTo="/"

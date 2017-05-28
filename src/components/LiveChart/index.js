@@ -17,29 +17,32 @@ export default class LiveChart extends Component {
   };
 
   componentDidMount() {
-    this.interval = setInterval(() => {
+    const poll = () => {
       const lastTimestamp = this.state.data.length === 0 ?
         0 : this.state.data[this.state.data.length - 1].timestamp || 0;
       axios.get(`http://10.0.0.110:5000/tts?from=${lastTimestamp}`).then((response) => {
-        let newData = response.data;
-        if (newData.length === 0) {
-          newData = [{
-            timestamp: 3000000.0,
-            volume: Math.floor((Math.random() * 20) + 5),
-            temperature: Math.floor((Math.random() * 15) + 10),
-            on_call: true,
-          }];
-        }
+        const newData = response.data;
+        // if (newData.length === 0) {
+        // newData = [{
+        //   timestamp: 3000000.0,
+        //   volume: Math.floor((Math.random() * 20) + 5),
+        //   temperature: Math.floor((Math.random() * 15) + 10),
+        //   on_call: true,
+        // }];
+        // }
         this.setState((prevState) => ({
           polling: true,
-          data: this.appendTtss(prevState.data, newData),
+          data: this.appendTtss(
+            prevState.data,
+            newData.map((tts) => ({
+              ...tts, volume: Math.floor((Math.random() * 3) + 10),
+            }))
+          ),
         }));
+        setTimeout(poll, 1500);
       });
-    }, 1500);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.interval);
+    };
+    poll();
   }
 
   appendTtss = (data, newData) => [...data, ...newData].slice(-maxTtss)
