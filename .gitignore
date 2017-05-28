@@ -1,6 +1,7 @@
 
 .DS_STORE
 node_modules
+build
 *~
 *.pyc
 static
@@ -8,6 +9,9 @@ static
 _SpecRunner.html
 __benchmarks__
 build/
+build/assets.js
+build/server.js
+build/server.js.map
 remote-repo/
 coverage/
 .module-cache
