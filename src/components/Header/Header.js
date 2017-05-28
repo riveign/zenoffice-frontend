@@ -36,18 +36,14 @@ function Header() {
           <ul className="nav navbar-top-links navbar-right">
 
            <NavDropdown title={<i className="fa fa-user fa-fw"></i> } id = 'navDropdown4'>
-                  <MenuItem eventKey="1" onClick = {(event) => { history.push('/blank');}}>
-                    <span> <i className="fa fa-user fa-fw"></i> User Profile </span>
+                  <MenuItem eventKey="1" onClick = {(event) => { history.push('/profile');}}>
+                    <span> <i className="fa fa-user fa-fw"></i> Perfil </span>
                   </MenuItem>
-                  <MenuItem eventKey="2">
-                    <span><i className="fa fa-gear fa-fw"></i> Settings </span>
-                  </MenuItem>
-                  <MenuItem divider />
-                  <MenuItem eventKey = "3" href = 'http://www.strapui.com' >
-                    <span> <i className = "fa fa-eye fa-fw" /> Premium React Themes </span>
+                  <MenuItem eventKey="2" onClick = {(event) => { history.push('/config');}}>
+                    <span><i className="fa fa-gear fa-fw"></i> Configuración </span>
                   </MenuItem>
                   <MenuItem divider />
-                  <MenuItem eventKey = "4" onClick = {(event) => { history.push('/login');}}>
+                  <MenuItem eventKey = "3" onClick = {(event) => { history.push('/login');}}>
                     <span> <i className = "fa fa-sign-out fa-fw" /> Logout </span>
                   </MenuItem>
                 </NavDropdown>

@@ -37,12 +37,14 @@ class Sidebar extends Component {
               </a>
             </li>
             <li>
-              <a href="" onClick={(e) => { e.preventDefault(); history.push('/blank'); }} >
-                Blank
+              <a href="" onClick={(e) => { e.preventDefault(); history.push('/profile'); }} >
+                <i className="fa fa-user fa-fw" /> &nbsp; Perfil
               </a>
             </li>
             <li>
-              <a href="http://www.strapui.com/">Premium React Themes</a>
+              <a href="" onClick={(e) => { e.preventDefault(); history.push('/config'); }} >
+                <i className="fa fa-cog fa-fw" /> &nbsp; Configuración
+              </a>
             </li>
           </ul>
         </div>

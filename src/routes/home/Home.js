@@ -8,10 +8,10 @@ import {
   Panel, PageHeader, ListGroup, ListGroupItem, Button,
 } from 'react-bootstrap';
 
-
 import s from './Home.css';
 import StatWidget from '../../components/Widget';
-import Donut from '../../components/Donut';
+import CallStatus from '../../components/CallStatus';
+import CallButton from '../../components/CallButton';
 
 import {
   Tooltip,
@@ -20,7 +20,6 @@ import {
   ResponsiveContainer } from '../../vendor/recharts';
 
 const title = 'Sb Admin React';
-
 
 const data = [
       { name: 'Page A', uv: 4000, pv: 2400, amt: 2400, value: 600 },
@@ -32,13 +31,26 @@ const data = [
       { name: 'Page G', uv: 3490, pv: 4300, amt: 2100, value: 100 },
 ];
 
+const callInProgress = false;
+
 function Home(props, context) {
   context.setTitle(title);
   return (
     <div>
       <div className="row">
-        <div className="col-lg-12">
+        <div className="col-lg-8">
           <PageHeader>Segundo piso</PageHeader>
+        </div>
+        <div className="col-lg-4">
+          {
+            callInProgress ? (
+              <CallStatus
+                name="Ignacio"
+              />
+          ) : (
+            <CallButton />
+          )
+          }
         </div>
       </div>
 
@@ -46,7 +58,7 @@ function Home(props, context) {
         <div className="col-lg-3 col-md-6">
           <StatWidget
             style="panel-primary"
-            icon="fa fa-comments fa-5x"
+            icon="fa fa-thermometer-half fa-5x"
             count="26 C"
             headerText="Temperatura"
             footerText="Ver Historial"
@@ -56,7 +68,7 @@ function Home(props, context) {
         <div className="col-lg-3 col-md-6">
           <StatWidget
             style="panel-green"
-            icon="fa fa-tasks fa-5x"
+            icon="fa fa-tachometer fa-5x"
             count="12"
             headerText="Decibeles"
             footerText="Ver Historial"
@@ -66,7 +78,7 @@ function Home(props, context) {
         <div className="col-lg-3 col-md-6">
           <StatWidget
             style="panel-yellow"
-            icon="fa fa-shopping-cart fa-5x"
+            icon="fa fa-users fa-5x"
             count="15"
             headerText="Personas"
             footerText="Ver detalles"
@@ -76,7 +88,7 @@ function Home(props, context) {
         <div className="col-lg-3 col-md-6">
           <StatWidget
             style="panel-red"
-            icon="fa fa-support fa-5x"
+            icon="fa fa-exclamation-triangle fa-5x"
             count="13"
             headerText="Quejas"
             footerText="Ver detalles"
@@ -220,45 +232,17 @@ function Home(props, context) {
 
           <Panel
             header={<span>
-              <i className="fa fa-bell fa-fw" /> Notifications Panel
+              <i className="fa fa-bell fa-fw" /> Notificaciones
             </span>}
           >
             <ListGroup>
               <ListGroupItem href="" onClick={(e) => { e.preventDefault(); }}>
-                <i className="fa fa-comment fa-fw" /> New Comment
-                <span className="pull-right text-muted small"><em>4 minutes ago</em></span>
+                <i className="fa fa-comment fa-fw" /> Pablo va a tener una call en 30 minutos
+                <span className="pull-right text-muted small"><em>7 minutes ago</em></span>
               </ListGroupItem>
               <ListGroupItem href="" onClick={(e) => { e.preventDefault(); }}>
-                <i className="fa fa-twitter fa-fw" /> 3 New Followers
-                <span className="pull-right text-muted small"><em>12 minutes ago</em></span>
-              </ListGroupItem>
-              <ListGroupItem href="" onClick={(e) => { e.preventDefault(); }}>
-                <i className="fa fa-envelope fa-fw" /> Message Sent
-                <span className="pull-right text-muted small"><em>27 minutes ago</em></span>
-              </ListGroupItem>
-              <ListGroupItem href="" onClick={(e) => { e.preventDefault(); }}>
-                <i className="fa fa-tasks fa-fw" /> New Task
-                <span className="pull-right text-muted small"><em>43 minutes ago</em></span>
-              </ListGroupItem>
-              <ListGroupItem href="" onClick={(e) => { e.preventDefault(); }}>
-                <i className="fa fa-upload fa-fw" /> Server Rebooted
-                <span className="pull-right text-muted small"><em>11:32 AM</em></span>
-              </ListGroupItem>
-              <ListGroupItem href="" onClick={(e) => { e.preventDefault(); }}>
-                <i className="fa fa-bolt fa-fw" /> Server Crashed!
-                <span className="pull-right text-muted small"><em>11:13 AM</em></span>
-              </ListGroupItem>
-              <ListGroupItem href="" onClick={(e) => { e.preventDefault(); }}>
-                <i className="fa fa-warning fa-fw" /> Server Not Responding
-                <span className="pull-right text-muted small"><em>10:57 AM</em></span>
-              </ListGroupItem>
-              <ListGroupItem href="" onClick={(e) => { e.preventDefault(); }}>
-                <i className="fa fa-shopping-cart fa-fw" /> New Order Placed
-                <span className="pull-right text-muted small"><em>9:49 AM</em></span>
-              </ListGroupItem>
-              <ListGroupItem href="" onClick={(e) => { e.preventDefault(); }}>
-                <i className="fa fa-money fa-fw" /> Payment Received
-                <span className="pull-right text-muted small"><em>Yesterday</em></span>
+                <i className="fa fa-check fa-fw" /> ¡El 2do piso fue el más tranquilo de la semana!
+                <span className="pull-right text-muted small"><em>15 minutes ago</em></span>
               </ListGroupItem>
             </ListGroup>
             <Button block>View All Alerts</Button>

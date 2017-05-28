@@ -14,6 +14,7 @@ import App from '../components/App';
 import home from './home';
 import login from './login';
 import blank from './dashboardPages/blank';
+import config from './config';
 import error from './error';
 import profile from './profile';
 import Header from '../components/Header';
@@ -44,6 +45,7 @@ export default [
       blank,
       profile,
       error,
+      config,
     ],
 
     async action({ next, render, context }) {
